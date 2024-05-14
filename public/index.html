@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="/public/css/styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">Task Manager</a>
+      <ul class="nav">
+        <li class="nav-item"><a href="#" class="nav-link">Sign Up</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Category Section -->
+    <section class="category-section">
+      <h2>Tasks by Category</h2>
+      <!-- Display categories here -->
+    </section>
+
+    <!-- Task Form Section -->
+    <section class="task-form-section">
+      <h2>Add a Task</h2>
+      <form id="task-form">
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select id="category" name="category">
+            <option value="home">Home</option>
+            <option value="work">Work</option>
+            <option value="school">School</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" placeholder="Enter task title">
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" placeholder="Enter task description"></textarea>
+        </div>
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <!-- Task Boxes Section -->
+    <section class="task-boxes-section">
+      <div class="task-box">
+        <h3>To Do</h3>
+        <!-- Display tasks in "To Do" category here -->
+      </div>
+      <div class="task-box">
+        <h3>In Progress</h3>
+        <!-- Display tasks in "In Progress" category here -->
+      </div>
+      <div class="task-box">
+        <h3>Done</h3>
+        <!-- Display tasks in "Done" category here -->
+      </div>
+    </section>
+
+    <!-- Organize Buttons Section -->
+    <section class="organize-buttons-section">
+      <button id="home-btn">Home</button>
+      <button id="work-btn">Work</button>
+      <button id="school-btn">School</button>
+      <button id="other-btn">Other</button>
+    </section>
+  </div>
+
+  <script src="scripts.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
