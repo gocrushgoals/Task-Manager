@@ -1,0 +1,129 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navigation Bar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Align items at the start and end of the navbar */
+  align-items: center; /* Center items vertically within the navbar */
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav {
+  list-style: none;
+  display: flex; /* Change the display to flex */
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+/* Category Section */
+.category-section h2 {
+  margin-bottom: 20px;
+}
+
+/* Task Form Section */
+.task-form-section {
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Task Boxes Section */
+.task-boxes-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.task-box {
+  width: calc(33.33% - 20px);
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.task-box h3 {
+  margin-bottom: 10px;
+}
+
+/* Organize Buttons Section */
+.organize-buttons-section button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.organize-buttons-section button:last-child {
+  margin-right: 0;
+}
+
+.organize-buttons-section button:hover {
+  background-color: #218838;
+}
