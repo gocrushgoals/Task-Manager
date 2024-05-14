@@ -1,0 +1,51 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3c3b2;
+}
+
+/* Navbar styles */
+.navbar {
+    color: #403234; /* Light text color */
+    padding: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    color: #403234;
+    text-decoration: none;
+    font-size: 55px;
+}
+
+.nav-links ul {
+    list-style-type: none;
+}
+
+.nav-links ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.nav-links ul li a:hover {
+    color: #ccc; /* Lighter color on hover */
+}

@@ -12,9 +12,24 @@
 
 <body>
     <!-- Header section -->
-    <header>
-        <h1>Your Application Name</h1>
-        <!-- Add navigation links here -->
+     <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="#">Task Managing Site</a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        {{#if loggedIn}}
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">login</a></li>
+                        {{else}}
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Main content area -->
