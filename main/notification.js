@@ -50,7 +50,7 @@ const scheduleEmail = (dueDate, emailDetails) => {
 // Example usage
 const taskDueDate = '2024-01-07T17:30:00Z'; // Replace with your task due date
 const emailDetails = {
-    to: 'ivana.djordjevic@live.ca',
+    to: 'edibengston@gmail.com',
     subject: 'Task Due Reminder',
     text: 'This is a reminder that your task is due soon.',
 };
