@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const description = document.getElementById('task-description').value;
             const notification = document.getElementById('notify').checked;
             const priority = document.getElementById('priority').value;
-            const due_date = document.getElementById('due-date').value;
-
+            const due_date = new Date(document.getElementById('due-date').value);
+            due_date.setTime(due_date.getTime()+due_date.getTimezoneOffset()*60000);
 
             const newTask = {
                 name: name,
                 description: description,
                 notification: notification,
                 priority: priority,
-                due_date: due_date,
+                due_date: due_date.toISOString(),
             };
-
+            console.log (newTask);
             try {
                 const response = await fetch('/api/task', {
                     method: 'POST',
