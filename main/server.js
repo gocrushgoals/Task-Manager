@@ -54,42 +54,50 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-function pollEmails() {
-    setInterval(async() => {
-         const currentTime = new Date().getTime();
-    const dayBefore = 24*60*60*1000;
-    let dueTime = new Date(currentTime+dayBefore);
-    
-        const scheduledEmailsData = await Notification.findAll({
-            where: {
-                // due_date: {[Op.lte]: dueTime, [Op.gt]: currentTime}
-                due_date: {[Op.between]: [ currentTime, currentTime + dayBefore]}
-            }
-        });
-        const scheduledEmails = scheduledEmailsData.map(item => item.get({
-            plain: true
-        }))
-        console.log('scheduledEmails', scheduledEmails)
-        return scheduledEmails.forEach(async (email) => {
-            const emailDetails = JSON.parse(email.details);
-            if(emailDetails.to) {
-                console.log(emailDetails);
-                const sender = await sendEmail(emailDetails.to, emailDetails.subject, emailDetails.text);
-                console.log (sender);
-                if(sender.response.includes('OK')) {
-                    await Notification.destroy({
-                        where: {
-                            id:email.id
-                        }
-                    });
-                    console.log('deleted one email');
+function pollEmails(intervalInSeconds) {
+    setInterval(async () => {
+        const currentTime = new Date().getTime();
+        const dayBefore = 24 * 60 * 60 * 1000;
+        const dueTime = new Date(currentTime + dayBefore);
+
+        try {
+            const scheduledEmailsData = await Notification.findAll({
+                where: {
+                    due_date: {
+                        [Op.between]: [currentTime, dueTime]
+                    }
+                }
+            });
+
+            const scheduledEmails = scheduledEmailsData.map(item => item.get({ plain: true }));
+
+            for (const email of scheduledEmails) {
+                const emailDetails = JSON.parse(email.details);
+
+                if (emailDetails.to) {
+                    console.log(emailDetails);
+                    const sender = await sendEmail(emailDetails.to, emailDetails.subject, emailDetails.text);
+
+                    console.log(sender);
+
+                    if (sender.response.includes('OK')) {
+                        await Notification.destroy({
+                            where: {
+                                id: email.id
+                            }
+                        });
+
+                        console.log('Deleted one email');
+                    }
                 }
             }
-        });
-    }, 10*1000);
+        } catch (error) {
+            console.error('Error processing scheduled emails:', error);
+        }
+    }, intervalInSeconds * 1000); // Convert intervalInSeconds to milliseconds
 }
 
 sequelize.sync({ force: false }).then(() => {
-    pollEmails();
+    pollEmails(30);
     app.listen(PORT, () => console.log('Now listening'));
 });
