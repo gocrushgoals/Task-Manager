@@ -18,18 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('name').value;
             const description = document.getElementById('description').value;
             const priority = document.getElementById('priority').value;
-            // const progress = document.getElementById('progress').value;
-            const dueDate = document.getElementById('due-date').value;
+            const dueDateInput = document.getElementById('due-date'); // Get the input element
+
+            // Update the dueDate when the user selects a new date
+            const updatedDueDate = dueDateInput.value; // Get the selected date
+            const newUpdatedDate = new Date(new Date(updatedDueDate).getTime() + 24 * 60 * 60 * 1000);
 
             const updatedTask = {
                 id: id,
                 name: name,
                 description: description,
                 priority: priority,
-                progress: progress,
-                dueDate: dueDate
+                due_date: newUpdatedDate
             };
-            console.log(updatedTask);
+            console.log(updatedTask); // Log the entire updatedTask object
+
             // Perform the update logic (e.g., make an API request, update the database)
             try {
                 const response = await fetch(`/api/task/${id}`, {
@@ -41,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    // Redirect to task details page
+                // Redirect to task details page
                     document.location.href = `/task/${id}`;
                 } else {
                     console.log('Failed to update task');
@@ -58,15 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
         editButton.addEventListener('click', handleEdit);
         console.log('Event listener attached to "Edit" button');
     }
-    // const editButton2 = document.querySelector('.edit-button');
-    // if (editButton2) {
-    //   editButton2.addEventListener('click', handleEdit);
-    //   console.log('Event listener attached to "Edit" button');
-    // }
 
     const updateButton = document.querySelector('.update-button');
     if (updateButton) {
         updateButton.addEventListener('click', handleUpdate);
         console.log('Event listener attached to "Update" button');
     }
+
 });

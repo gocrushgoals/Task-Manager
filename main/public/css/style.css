@@ -225,4 +225,14 @@ h4 {
     .edit-task-container {
         inline-size: 20em;
     }
+
+    div.task-list {
+        display: block;
+        flex-direction: column;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+    }
 }

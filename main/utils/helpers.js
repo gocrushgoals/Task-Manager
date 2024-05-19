@@ -1,7 +1,5 @@
 module.exports = {
     format_date: (date) => {
-    // Format date as MM/DD/YYYY
-        date = new Date(date.getTime()+3600000);
         return date.toLocaleDateString();
     },
     format_html_date: (date) => {
