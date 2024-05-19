@@ -18,9 +18,9 @@ Designed for task management, allowing users to set deadlines and priorities for
 
 
 ## Screenshots<br>
-![Login Page](../group-project-2/assets/login.png)<br>
-![Homepage](../group-project-2/assets/homepage.png)<br>
-![Create Task](../group-project-2/assets/createTask.png)<br>
+![Login Page](./assets/login.png)<br>
+![Homepage](./assets/homepage.png)<br>
+![Create Task](./assets/createTask.png)<br>
 
 ## Link of Deployed Application
 
