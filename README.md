@@ -47,7 +47,7 @@ A blog where the user can easily keep track of their tasks.
 
 ![License](https://img.shields.io/badge/License-MIT_License-lightblue.svg)
 
-## Credits
+## Credit
 
 - Storm Powell, Kristi Rowland, Ben Ravandi & Zachary Harvey
 - Course: Bootcamp Full Stack Development
