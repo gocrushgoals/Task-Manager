@@ -24,7 +24,7 @@ Designed for task management, allowing users to set deadlines and priorities for
 
 ## Link of Deployed Application
 
-[Live Deployed Heroku Link](https://task-managementt-6e5cfd5db620.herokuapp.com/login)
+[Live Deployed Heroku Link] https://maven-task-manager-d3cb62eb6403.herokuapp.com/login 
 
 ## Installation 
 
