@@ -14,15 +14,6 @@
             <option value="false" {{#unless priority}}selected{{/unless}}>Low Priority</option>
         </select>
     </div>
-    {{!-- <div>
-        <p>progress of task</p>
-        <select name="progress "id="progress">
-            <option>{{progress}}</option>
-            <option value="1" {{is_value_eq progress 1}}>Not started</option>
-            <option value="2" {{is_value_eq progress 2}}>In progress</option>
-            <option value="3" {{is_value_eq progress 3}}>Completed</option>
-        </select>
-    </div> --}}
     <div>
         <p class="p">Due Date of Task:</p>
         <input type="date" id="due-date" value="{{format_html_date due_date}}"></input>

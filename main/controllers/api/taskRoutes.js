@@ -26,7 +26,6 @@ router.post('/', withAuth, async (req, res) => {
             due_date: due_date,
             user_id: req.session.user_id
         });
-        
         const emailDetails = {
             to: req.session.email,
             subject: 'Task Due Reminder',
@@ -51,6 +50,7 @@ router.put('/:id', withAuth, async (req, res) => {
                 id: req.params.id
             }
         });
+
         res.json(updateTask);
     } catch (err) {
         console.log(err);

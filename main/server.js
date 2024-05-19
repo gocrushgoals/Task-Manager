@@ -1,3 +1,4 @@
+// Import Required libraries
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -98,6 +99,6 @@ function pollEmails(intervalInSeconds) {
 }
 
 sequelize.sync({ force: false }).then(() => {
-    pollEmails(30);
+    pollEmails(15);
     app.listen(PORT, () => console.log('Now listening'));
 });
