@@ -1,5 +1,7 @@
+/* Importing fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&family=Laila:wght@300&family=Lustria&display=swap');
 
+/* Defining color variables */
 :root {
     --lilac: #9B5DE5;
     --coldPink: #F15BB5;
@@ -14,13 +16,13 @@
     --red: red;
 }
 
-/* General */
-
+/* General styles applied to all elements */
 * {
     box-sizing: border-box;
     font-family: "Lustria", serif;
 }
 
+/* Body styles including a radial gradient background */
 body {
     background: radial-gradient(at 98% 69%, var(--lilac) 0px, transparent 50%), 
                 radial-gradient(at 89% 12%, var(--coldPink) 0px, transparent 50%), 
@@ -32,20 +34,22 @@ body {
     background-attachment: fixed;
 }
 
+/* Class to hide elements */
 .hidden {
     display: none;
 }
 
+/* Centered text for headings */
 h1, h2, h3 {
     text-align: center;
 }
 
+/* Red color for due dates */
 .due-date{
     color: var(--red);
 }
 
-/* Header */
-
+/* Header styles */
 nav {  
     display: flex;
     justify-content: center;
@@ -56,12 +60,12 @@ nav {
     flex-wrap: wrap;
 }
 
+/* Cursor style for links */
 a {
     cursor: pointer;
 }
 
-/* Login & Signup Forms */
-
+/* Styles for login and signup forms */
 .login-signup{
     display: flex;
     justify-content: center;
@@ -69,20 +73,22 @@ a {
     flex-wrap: wrap;
 }
 
+/* Form styles */
 form {
 	display: inline-flex;
 	flex-direction: column;
     line-height: 2;
 }
 
+/* Form container styles */
 .form { 
     background: var(--lightWhite);
     margin-top: 2em;
     padding: 0em 2em 2em 2em;
     box-shadow: 0 0 15px 1px var(--lightPink);
-
 }
 
+/* Input and textarea styles */
 input, textarea {
 	padding: 3px;
 	margin:10px 0;
@@ -91,11 +97,10 @@ input, textarea {
     width: 100%;
 }
 
+/* Button styles */
 button {
-	/* remove default behavior */
 	appearance:none;
 	-webkit-appearance:none;
-	/* usual styles */
 	padding:10px;
 	border:none;
 	background-color: var(--lilac);
@@ -106,25 +111,28 @@ button {
     cursor: pointer;
 }
 
+/* Spacer class for margin */
 .spacer {
     margin-top: 6.5px;
 }
 
-/* Homepage */
-
+/* Homepage styles */
 .show-create-task {
     width: auto;
 }
 
+/* Centered text for create task button */
 .create-taskbtn {
     text-align: center;
 }
 
+/* New task container styles */
 .new-task-container{
     display: flex;
     justify-content: center;
 }
 
+/* New task form styles */
 .new-task-form {
     background: var(--lightWhite);
     box-shadow: 0 0 15px 1px var(--lightPink);
@@ -133,21 +141,23 @@ button {
     inline-size: 30em;
 }
 
+/* Priority dropdown styles */
 #priority {
     width: 100%;
     border-radius: 5px;
 }
 
+/* Notify checkbox styles */
 #notify {
     width: auto;
 }
 
-/* Task Card */
-
+/* Task card styles */
 h4 {
     margin-top: 0;
 }
 
+/* Task list styles */
 .task-list {
     display: flex;
     flex-direction: column;
@@ -155,6 +165,7 @@ h4 {
     gap: 2em;
 }
 
+/* Task card styles */
 .task-card {
     padding: 2em;
     border: 2px solid var(--skyBlue);
@@ -165,16 +176,17 @@ h4 {
     background-color: var(--lightWhite);
 }
 
+/* Delete button styles */
 .delete-button {
     margin-bottom: 1em;
 }
 
+/* Priority color styles */
 .priority-color {
     background: var(--lightYellow);
 }
 
-/* Edit Task Form */
-
+/* Edit task form styles */
 .edit-task-container{
     position: absolute;
     top: 43%;
@@ -184,44 +196,47 @@ h4 {
     inline-size: 30em;
 }
 
+/* Paragraph styles */
 .p { 
     margin: 0;
 }
 
-/* Single Task View */
-
+/* Single task view styles */
 .single-task-container{
     display: flex;
     justify-content: center;
     margin-top: 2em;
 }
 
+/* Single task styles */
 #single-task {
     display: block;    
 }
 
+/* Media query for screens with max width of 537px */
 @media screen and (max-width: 537px) {
 
-    /* Login/Signup Screen Adjustments */
-
+    /* Login/Signup screen adjustments */
     .login-signup {
         gap: 1em;
     }
 
+    /* Signup form adjustments */
     .signup {
         margin-bottom: 2em;
     }
 
-    /* Task Card Adjustments */
-
+    /* Task card adjustments */
     .task-card {
         inline-size: 20em;
     }
 
+    /* New task form adjustments */
     .new-task-form {
         inline-size: 20em;
     }
 
+    /* Edit task form adjustments */
     .edit-task-container {
         inline-size: 20em;
     }

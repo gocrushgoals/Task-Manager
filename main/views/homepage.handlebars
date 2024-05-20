@@ -1,15 +1,23 @@
+<!-- Check if the user is logged in -->
 {{#if logged_in}}
+  <!-- If logged in, display a welcome message with the user's name -->
   <h1> Hello {{name}}</h1>
+  <!-- Display a button to create a new task -->
   <div class="create-taskbtn">
     <button class="show-create-task">CREATE NEW TASK</button>
   </div>
 
+  <!-- Container for the new task form -->
   <div class="new-task-container">
+    <!-- The form is initially hidden -->
     <div id="task-form" class="hidden">
+      <!-- Form title -->
       <h3>
         Create New Task
       </h3>
+      <!-- The form itself -->
       <form class="new-task-form">
+        <!-- Input field for the task name -->
         <div>
           <label for="task-name">Task name:</label>
           <br />
@@ -20,16 +28,19 @@
             name="task-name"
           />
         </div>
+        <!-- Textarea for the task description -->
         <div>
           <label for="task-description">Description:</label>
           <br />
           <textarea id="task-description" name="task-description"></textarea>
         </div>
+        <!-- Checkbox to enable notifications for the task -->
         <div>
           <label for="notify">Enable Notifications:</label>
           <br />
           <input type="checkbox" id="notify" name="notify" />
         </div>
+        <!-- Select field for the task priority -->
         <div>
           <label for="priority">Priority:</label>
           <br />
@@ -38,11 +49,13 @@
             <option value="low">Low</option>
           </select>
         </div>
+        <!-- Input field for the task due date -->
         <div>
           <label for="due-date">Due Date:</label>
           <br />
           <input type="date" id="due-date" name="due-date" />
         </div>
+        <!-- Submit button for the form -->
         <br />
         <div>
           <button class="new-task" type="submit">CREATE</button>
@@ -51,23 +64,32 @@
     </div>
   </div>
 
+  <!-- Check if there are any tasks -->
   {{#if tasks.length}}
+    <!-- If there are tasks, display them -->
     <h3>All Tasks:</h3>
     <div class="task-list">
+      <!-- Loop through each task -->
       {{#each tasks as |task|}}
+        <!-- Display the task details in a card -->
         <div class="task-card">
+          <!-- Task name, linked to the task page -->
           <div>
             <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
           </div>
+          <!-- Task description -->
           <div>
             <p>{{task.description}}</p>
           </div>
+          <!-- Task priority -->
           <div>
             <p class="priority">{{task.priority}}</p>
           </div>
+          <!-- Task progress (commented out) -->
           {{!-- <div>
                         <p class="progress">{{task.progress}}</p>
                     </div> --}}
+          <!-- Buttons to delete and edit the task -->
           <div>
             <button class="delete-button" data-id="{{task.id}}">DELETE</button>
             <button class="edit-button" data-id="{{task.id}}">EDIT</button>
@@ -77,6 +99,7 @@
     </div>
   {{/if}}
 
+<!-- If the user is not logged in, display a welcome message and prompt to login/sign up -->
 {{else}}
   <h1>Welcome!</h1>
   <h3>
@@ -84,6 +107,7 @@
   </h3>
 {{/if}}
 
+<!-- Include the necessary JavaScript files -->
 <script src="/js/task.js"></script>
 <script src="/js/priorities.js"></script>
 <script src="/js/progress.js"></script>

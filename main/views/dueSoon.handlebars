@@ -1,33 +1,48 @@
+<!-- Check if there are any tasks in the tasks array -->
 {{#if tasks.length}}
+  <!-- Display a header for the tasks -->
   <h3>All tasks arranged by due date:</h3>
+  <!-- Start a container for the task list -->
   <div class="task-list">
+    <!-- Loop through each task in the tasks array -->
     {{#each tasks as |task|}}
+      <!-- Start a container for each task -->
       <div class="task-card">
+        <!-- Display the task name as a link to its individual page -->
         <div>
           <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
         </div>
+        <!-- Display the task description -->
         <div>
           <p>{{task.description}}</p>
         </div>
+        <!-- Display the task priority -->
         <div>
           <p class="priority">{{task.priority}}</p>
         </div>
+        <!-- Display the task progress (currently commented out) -->
         {{!-- <div>
-                    <p class="progress">{{task.progress}}</p>
-                </div> --}}
+          <p class="progress">{{task.progress}}</p>
+        </div> --}}
+        <!-- Display the task due date -->
         <div class="due-date">
-          <p>{{format_date due_date}}</p>
+          <p>{{format_date task.due_date}}</p>
         </div>
+        <!-- Display buttons for deleting and editing the task -->
         <div>
           <button class="delete-button" data-id="{{task.id}}">DELETE</button>
           <button class="edit-button" data-id="{{task.id}}">EDIT</button>
         </div>
       </div>
+    <!-- End of loop through each task -->
     {{/each}}
+  <!-- End of task list container -->
   </div>
+<!-- End of check if there are any tasks -->
 {{/if}}
 
-<script src=" /js/priorities.js"></script>
-<script src=" /js/progress.js"></script>
-<script src=" /js/update.js"></script>
-<script src=" /js/delete.js"></script>
+<!-- Include scripts for handling task priorities, progress, updates, and deletions -->
+<script src="/js/priorities.js"></script>
+<script src="/js/progress.js"></script>
+<script src="/js/update.js"></script>
+<script src="/js/delete.js"></script>

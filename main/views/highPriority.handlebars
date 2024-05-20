@@ -1,33 +1,46 @@
+<!-- Check if there are any tasks -->
 {{#if tasks.length}}
+  <!-- If there are tasks, display a header -->
   <h3>All High Priority Tasks:</h3>
+  <!-- Create a container for the task list -->
   <div class="task-list">
+    <!-- For each task, create a task card -->
     {{#each tasks as |task|}}
       <div class="task-card">
+        <!-- Display the task name as a link to the task's page -->
         <div>
           <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
         </div>
+        <!-- Display the task description -->
         <div>
           <p>{{task.description}}</p>
         </div>
+        <!-- Display the task priority -->
         <div>
           <p class="priority">{{task.priority}}</p>
         </div>
+        <!-- This section for displaying the task's progress is currently not being used -->
         {{!-- <div>
                     <p class="progress">{{task.progress}}</p>
                 </div> --}}
+        <!-- Display the task due date -->
         <div>
           <p>{{format_date due_date}}</p>
         </div>
+        <!-- Display buttons to delete or edit the task -->
         <div>
           <button class="delete-button" data-id="{{task.id}}">DELETE</button>
           <button class="edit-button" data-id="{{task.id}}">EDIT</button>
         </div>
       </div>
+    <!-- End of the loop for each task -->
     {{/each}}
+  <!-- End of the task list container -->
   </div>
-
+<!-- End of the check if there are any tasks -->
 {{/if}}
 
+<!-- Include JavaScript files that handle task priorities, progress, updates, and deletions -->
 <script src=" /js/priorities.js"></script>
 <script src=" /js/progress.js"></script>
 <script src=" /js/update.js"></script>

@@ -4,7 +4,7 @@ const express = require('express');
 // Create a new router object from express. This object can be used to define and handle various routes in your application.
 const router = express.Router();
 
-// Import the task controller module. 
+// Import the task controller module.
 const taskController = require('./taskController');
 
 // Use the task controller for all routes starting with '/api'. This means that any request starting with '/api' will be handled by the taskController.

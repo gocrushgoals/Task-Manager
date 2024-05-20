@@ -1,16 +1,28 @@
+<!-- This is a form for editing task details. It has a class of "edit-task-container" and "form" -->
 <form class="edit-task-container form">
+    <!-- This is a container for the task name input -->
     <div>
+        <!-- This is a paragraph that serves as a label for the task name input -->
         <p class="p">Name of Task:</p>
+        <!-- This is a textarea for inputting the task name. The current task name is displayed by default -->
         <textarea id="name">{{name}}</textarea>
     </div>
+    <!-- This is a container for the task description input -->
     <div>
+        <!-- This is a paragraph that serves as a label for the task description input -->
         <p class="p">Description of Task:</p>
+        <!-- This is a textarea for inputting the task description. The current task description is displayed by default -->
         <textarea id="description">{{description}}</textarea>
     </div>
+    <!-- This is a container for the task priority input -->
     <div>
+        <!-- This is a paragraph that serves as a label for the task priority input -->
         <p class="p">Priority of Task:</p>
+        <!-- This is a select dropdown for choosing the task priority. The current task priority is selected by default -->
         <select name="priority "id="priority">
+            <!-- This is an option for high priority tasks. It is selected by default if the current task is high priority -->
             <option value="true" {{#if priority}}selected{{/if}}>High Priority</option>
+            <!-- This is an option for low priority tasks. It is selected by default if the current task is low priority -->
             <option value="false" {{#unless priority}}selected{{/unless}}>Low Priority</option>
         </select>
     </div>
@@ -24,15 +36,26 @@
         </select>
     </div> --}}
     <div>
-        <p class="p">Due Date of Task:</p>
-        <input type="date" id="due-date" value="{{format_html_date due_date}}"></input>
-    </div>
-    <br>
-    <div>
-        <button class="update-button" data-id="{{id}}">EDIT</button>
-    </div>
+    <!-- Paragraph with class 'p' displaying the text 'Due Date of Task:' -->
+    <p class="p">Due Date of Task:</p>
+    <!-- Input field of type date with id 'due-date'. The value is set by the server-side template engine -->
+    <input type="date" id="due-date" value="{{format_html_date due_date}}"></input>
+<!-- End of div element -->
 </div>
 
+<!-- Line break -->
+<br>
+
+<!-- Start of a div element -->
+<div>
+    <!-- Button with class 'update-button'. The data-id attribute is set by the server-side template engine -->
+    <button class="update-button" data-id="{{id}}">EDIT</button>
+<!-- End of div element -->
+</div>
+
+<!-- Link to the 'priorities.js' JavaScript file -->
 <script src="/js/priorities.js"></script>
+<!-- Link to the 'progress.js' JavaScript file -->
 <script src="/js/progress.js"></script>
+<!-- Link to the 'update.js' JavaScript file -->
 <script src="/js/update.js"></script>

@@ -22,7 +22,6 @@ router.post('/', withAuth, async (req, res) => {
     try{
         // Destructuring the request body to get task details
         const { name, description, notification, priority, due_date } = req.body;
-        
         // Creating a new Task with the provided details
         const newTask = await Task.create({
             name: name,
@@ -32,7 +31,7 @@ router.post('/', withAuth, async (req, res) => {
             due_date: due_date,
             user_id: req.session.user_id // Getting user id from the session
         });
-        
+
         // Defining email details for the notification
         const emailDetails = {
             to: req.session.email, // Recipient email

@@ -1,32 +1,47 @@
+<!-- Check if there are any tasks -->
 {{#if tasks.length}}
+  <!-- Heading for Low Priority Tasks -->
   <h3>All Low Priority Tasks:</h3>
+  <!-- Container for the task list -->
   <div class="task-list">
+    <!-- Loop through each task -->
     {{#each tasks as |task|}}
+      <!-- Container for each task card -->
       <div class="task-card">
+        <!-- Task name with a link to its page -->
         <div>
           <h4><a href="/task/{{task.id}}">{{task.name}}</a></h4>
         </div>
+        <!-- Task description -->
         <div>
           <p>{{task.description}}</p>
         </div>
+        <!-- Task priority -->
         <div>
           <p class="priority">{{task.priority}}</p>
         </div>
-        {{!-- <div>
+        <!-- Task progress (commented out) -->
+        <!-- <div>
                     <p class="progress">{{task.progress}}</p>
-                </div> --}}
+                </div> -->
+        <!-- Task due date -->
         <div>
           <p>{{format_date due_date}}</p>
         </div>
+        <!-- Delete and Edit buttons for the task -->
         <div>
           <button class="delete-button" data-id="{{task.id}}">DELETE</button>
           <button class="edit-button" data-id="{{task.id}}">EDIT</button>
         </div>
       </div>
+    <!-- End of loop -->
     {{/each}}
+  <!-- End of task list container -->
   </div>
+<!-- End of tasks check -->
 {{/if}}
 
+<!-- JavaScript files for handling priorities, progress, updates, and deletions -->
 <script src=" /js/priorities.js"></script>
 <script src=" /js/progress.js"></script>
 <script src=" /js/update.js"></script>

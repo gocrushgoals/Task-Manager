@@ -1,40 +1,62 @@
+<!-- This is a HTML document -->
 <html lang="en">
 
+  <!-- The head section contains meta-information about the document -->
   <head>
+    <!-- Setting the document's character encoding to UTF-8 -->
     <meta charset="UTF-8" />
+    <!-- Setting the viewport to scale for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The title of the document -->
     <title>Task Management</title>
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
+  <!-- The body section contains the content of the document -->
   <body>
+    <!-- A div element for grouping and applying styles -->
     <div>
+      <!-- The header of the document -->
       <header>
+        <!-- The main heading of the document -->
         <h1>Task Management</h1>
+        <!-- The navigation bar -->
         <nav>
+          <!-- Navigation link to all tasks -->
           <a href="/">All Tasks</a>
+          <!-- Navigation link to high priority tasks -->
           <a href="/highPriority">High Priority Tasks</a>
+          <!-- Navigation link to low priority tasks -->
           <a href="/lowPriority">Low Priority Tasks</a>
+          <!-- Navigation link to tasks due soon -->
           <a href="/dueSoon">Due Soon</a>
+          <!-- Conditional rendering based on whether the user is logged in -->
           {{#if logged_in}}
+            <!-- If the user is logged in, show the logout link -->
             <a class="" id="logout">logout</a>
           {{else}}
+            <!-- If the user is not logged in, show the login link -->
             <a href="/login">Login</a>
           {{/if}}
         </nav>
       </header>
+      <!-- The main content area of the document -->
       <main>
+        <!-- The body content is inserted here -->
         {{{body}}}
       </main>
+      <!-- The footer of the document -->
       <footer>
 
       </footer>
     </div>
 
+    <!-- Conditional rendering of the logout script based on whether the user is logged in -->
     {{#if logged_in}}
+      <!-- If the user is logged in, include the logout script -->
       <script src="/js/logout.js"></script>
     {{/if}}
   </body>
 
 </html>
-
