@@ -1,10 +1,12 @@
+// Import necessary packages
 const router = require('express').Router();
 const { User, Task } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Hompage route
+// Homepage route to display user tasks
 router.get('/', withAuth, async (req, res) => {
     try {
+        // Find user data by ID with associated tasks
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [
@@ -23,6 +25,7 @@ router.get('/', withAuth, async (req, res) => {
         console.log('------HOMEPAGE HERE--------');
         console.log(user);
 
+        // Render the 'homepage' template with user and task data
         res.render('homepage', {
             ...user,
             logged_in: req.session.logged_in,
@@ -67,14 +70,15 @@ router.get('/', withAuth, async (req, res) => {
 //     }
 // });
 
-// Route to add task
+// Route to view a specific task by ID
 router.get('/task/:id', withAuth, async (req, res) => {
     try {
+        // Find the task data by ID
         const taskData = await Task.findByPk(req.params.id);
-
         const task = taskData.get({ plain: true });
         console.log(task);
 
+        // Render the 'task' template with task data
         res.render('task', {
             task,
             logged_in: req.session.logged_in,
@@ -85,14 +89,15 @@ router.get('/task/:id', withAuth, async (req, res) => {
     }
 });
 
-// Route to edit task
+// Route to edit a specific task by ID
 router.get('/edit/:id', withAuth, async (req, res) => {
     try {
+        // Find the task data by ID for editing
         const taskData = await Task.findByPk(req.params.id);
-
         const task = taskData.get({ plain: true });
         console.log(task);
 
+        // Render the 'edit' template with task data for editing
         res.render('edit', {
             ...task,
             logged_in: true,
@@ -103,9 +108,10 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     }
 });
 
-// Route to highPriority tasks
+// Route to view high priority tasks
 router.get('/highPriority', withAuth, async (req, res) => {
     try {
+        // Find user data with high priority tasks
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [
@@ -117,11 +123,11 @@ router.get('/highPriority', withAuth, async (req, res) => {
             ],
             order: [[Task, 'due_date', 'ASC']],
         });
-
         const user = userData.get({ plain: true });
         console.log('------HIGH PRIORITY HERE--------');
         console.log(user);
 
+        // Render the 'highPriority' template with user data
         res.render('highPriority', {
             ...user,
             logged_in: req.session.logged_in,
@@ -132,9 +138,10 @@ router.get('/highPriority', withAuth, async (req, res) => {
     }
 });
 
-// Route to lowPriority tasks
+// Route to view low priority tasks
 router.get('/lowPriority', withAuth, async (req, res) => {
     try {
+        // Find user data with low priority tasks
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [
@@ -146,11 +153,11 @@ router.get('/lowPriority', withAuth, async (req, res) => {
             ],
             order: [[Task, 'due_date', 'ASC']],
         });
-
         const user = userData.get({ plain: true });
         console.log('------LOW PRIORITY HERE--------');
         console.log(user);
 
+        // Render the 'lowPriority' template with user data
         res.render('lowPriority', {
             ...user,
             logged_in: req.session.logged_in,
@@ -161,19 +168,20 @@ router.get('/lowPriority', withAuth, async (req, res) => {
     }
 });
 
-// Route to dueSoon tasks
+// Route to view tasks due soon
 router.get('/dueSoon', withAuth, async (req, res) => {
     try {
+        // Find user data with tasks due soon
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Task }],
             order: [[Task, 'due_date', 'ASC']],
         });
-
         const user = userData.get({ plain: true });
         console.log('------DUE SOON HERE--------');
         console.log(user);
 
+        // Render the 'dueSoon' template with user data
         res.render('dueSoon', {
             ...user,
             logged_in: req.session.logged_in,
@@ -184,14 +192,16 @@ router.get('/dueSoon', withAuth, async (req, res) => {
     }
 });
 
-// When logged in redirect to homepage
+// Redirect to homepage if already logged in
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
 
+    // Render the 'login' template
     res.render('login');
 });
 
+// Export the router to be used in the main application
 module.exports = router;
