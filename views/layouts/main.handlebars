@@ -1,40 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Management</title>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="/css/style.css" />
-  </head>
-
-  <body>
+</head>
+<body>
     <div>
-      <header>
-        <h1>Task Management</h1>
-        <nav>
-          <a href="/">All Tasks</a>
-          <a href="/highPriority">High Priority Tasks</a>
-          <a href="/lowPriority">Low Priority Tasks</a>
-          <a href="/dueSoon">Due Soon</a>
-          {{#if logged_in}}
-            <a class="" id="logout">logout</a>
-          {{else}}
-            <a href="/login">Login</a>
-          {{/if}}
-        </nav>
-      </header>
-      <main>
-        {{{body}}}
-      </main>
-      <footer>
-
-      </footer>
+        <header>
+            <!-- Page header with title and navigation links -->
+            <h1>Task Management</h1>
+            <nav>
+                <a href="/">All Tasks</a>
+                <a href="/highPriority">High Priority Tasks</a>
+                <a href="/lowPriority">Low Priority Tasks</a>
+                <a href="/dueSoon">Due Soon</a>
+                <!-- Conditional rendering based on user login status -->
+                {{#if logged_in}}
+                    <a class="" id="logout">logout</a>
+                {{else}}
+                    <a href="/login">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+            <!-- Main content area -->
+            {{{body}}}
+        </main>
+        <footer>
+            <!-- Page footer -->
+        </footer>
     </div>
-
+    <!-- Conditional script inclusion for user logout functionality -->
     {{#if logged_in}}
-      <script src="/js/logout.js"></script>
+        <script src="/js/logout.js"></script>
     {{/if}}
-  </body>
-
+</body>
 </html>
-
